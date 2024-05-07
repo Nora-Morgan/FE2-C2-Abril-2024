@@ -16,6 +16,7 @@ function pedirJugada() {
           eleccion = parseInt(prompt("Ingrese para jugar: 1(piedra), 2(papel) o 3(tijera)"));
   
           // si el dato ingresado no es válido entonces se vuelve a pedir hasta que cumpla
+          // mientras que sea verdadera sigue en el ciclo
       } while (isNaN(eleccion) || eleccion < 1 || eleccion > 3)
   
       // mostramos los datos por consola
@@ -94,6 +95,12 @@ function pedirJugada() {
   // 4- Finalmente, si el resultado fue una derrota debe mostrarle al usuario un mensaje de aliento para desearle suerte en la próxima oportunidad.
   
   function mostrarResultado(resultado){
-   
+    console.log(resultado);
+    if (resultado == 'Una lástima, perdiste.'){
+        alert(resultado + "\nSigue participando, suerte para la próxima.");
+    }
+    else{
+        alert(resultado);
+    }
   }
   
