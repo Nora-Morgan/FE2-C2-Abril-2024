@@ -1,3 +1,4 @@
+
 // -------------------------------------------------------------
 // Introducción del DOM
 //--------------------------------------------------------------
@@ -46,7 +47,6 @@ let elemento;
 elemento = document.querySelector('h1');
 
 
-
 // console.log(elemento);
 
 
@@ -57,11 +57,11 @@ elemento = document.querySelector('h1');
 //👇
 let articulos;
 articulos = document.querySelectorAll('article');
-console.log(articulos);
+// console.log(articulos);
 
 // Acceder a las propiedades de los nodos
 for (let i = 0; i < articulos.length; i++) {
-    console.log(articulos[i]);
+    // console.log(articulos[i]);
 }
 
 // Acceder al título de cada artículo
@@ -72,8 +72,8 @@ articulos.forEach(articulo => {
 
 //Acceder a la bajada de cada artículo
 for (noticia of articulos) {
-    const texto = noticia.querySelector('p').textContent;
-    console.log(texto);
+    const texto = noticia.querySelector('p').innerText;
+    // console.log(texto);
 }
 
 
@@ -86,3 +86,6 @@ for (noticia of articulos) {
 /* -------------------------------------------------------------------------- */
 
 // Escribir un selector para cada elemento del sitio.
+
+
+//👇
