@@ -273,8 +273,55 @@ renderizarAlbumes(albumesFamosos);
 
 function mostrarDatosEnPerfil(albumes) {
     // desarrollar la función 👇
+    const cantidadAlbumes = document.getElementById("cant-albums"),
+        cantidadFavoritos = document.querySelector("#cant-favoritos");
 
+    let contadorAlbum = 0,
+        contadorFavoritos = 0;
+
+    albumes.forEach( function(album) {
+    // albumes.forEach( (album) =>{
+        contadorAlbum++
+        // if (album.like == true) {
+        if (album.like) {
+            contadorFavoritos++
+        }
+    })
+
+    console.log(contadorAlbum);
+    console.log(contadorFavoritos);
+
+
+    if (contadorAlbum == 1) {
+        cantidadAlbumes.innerText = contadorAlbum + " álbum"
+    } else {
+        cantidadAlbumes.textContent = `${contadorAlbum} álbumes`
+    }
+    if (contadorFavoritos == 1) {
+        cantidadFavoritos.innerText = contadorFavoritos + " favorito"
+    } else {
+        cantidadFavoritos.textContent = `${contadorFavoritos} favoritos`
+    }
+    
 
 }
 mostrarDatosEnPerfil(albumesFamosos);
+
+
+
+// Otra solución: 
+// 👇
+//   function mostrarDatosEnPerfil(albumes) {
+//     let cantAlbumes = albumes.length;
+//     let favAlbumes = 0;
+//     albumes.forEach(album =>{
+//         if(album.like){favAlbumes ++;}
+//     })
+//     const cantAlbumesSpan = document.querySelector("#cant-albums");
+//     cantAlbumesSpan.innerText = `${cantAlbumes} álbum${cantAlbumes > 1 ? "es": ""}`
+
+//     const favAlbumesSpan = document.querySelector("#cant-favoritos");
+//     favAlbumesSpan.innerText = `${favAlbumes} favorito${favAlbumes > 1 ? "s" : ""}`
+// }
+
 
