@@ -10,7 +10,7 @@ let contenedorDeNoticias = document.querySelector('main');
 let notas = document.querySelectorAll('article');
 let titulos = document.querySelectorAll('article h2');
 
-// contenedorDeNoticias.style.backgroundColor = "green";
+contenedorDeNoticias.style.backgroundColor = "green";
 
 
 

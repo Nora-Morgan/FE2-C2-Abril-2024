@@ -45,6 +45,8 @@
 let elemento;
 
 elemento = document.querySelector('h1');
+elemento = document.querySelector('#unico');
+elemento = document.querySelector('.item');
 
 
 // console.log(elemento);
