@@ -84,7 +84,7 @@ function obtenerUsuario() {
     nombreUsuario.append (nuevoNodo);
 
     
-    console.log(nuevoNodo); 
+    // console.log(nuevoNodo); 
 
     // nombreUsuario.append(document.createTextNode(usuario));
 
@@ -288,8 +288,8 @@ function mostrarDatosEnPerfil(albumes) {
         }
     })
 
-    console.log(contadorAlbum);
-    console.log(contadorFavoritos);
+    // console.log(contadorAlbum);
+    // console.log(contadorFavoritos);
 
 
     if (contadorAlbum == 1) {
