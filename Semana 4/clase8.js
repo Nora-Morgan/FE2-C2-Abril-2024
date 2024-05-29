@@ -123,13 +123,50 @@ sin contar espacios al principio, en el medio o final, sumar el error:
 //     return errores;
 // }
 
+function validarInformacion(usuario) {
+    let errores = [];   
+    if (!isNaN(usuario.nombre) || usuario.nombre.length < 3) {
+        errores.push("El nombre de usuario debe tener mas de 3 caracteres y no puede ser un número")
+    } 
+    if (usuario.password.trim().length < 6) {
+        errores.push("El password debe tener más de 6 caracteres")
+    }
+    if (usuario.telefono.trim().length < 10) {
+        errores.push("El telefono debe tener más de 10 números")
+    }
+    if (usuario.hobbies.length > 4 || usuario.hobbies.length == 0) {
+        errores.push("Solo es posible seleccionar un máximo de 4 hobbies, y como mínimo 1");
+    }
+    if(usuario.nacionalidad == ""){
+        errores.push("Se debe seleccionar una nacionalidad")
+    }
 
+    return errores;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                       [4] FUNCION: renderizar errores                      */
 /* -------------------------------------------------------------------------- */
 
+function renderizarErrores(listado) {
+    const cajaErrores = document.querySelector("#errores");
+    console.log(cajaErrores);
 
+    if (cajaErrores) {
+          cajaErrores.remove();
+    }
+
+    if (listado.length > 0) {
+          const divTemplate = document.createElement('div');
+          divTemplate.setAttribute("id", "errores");
+          divTemplate.style = "background:rgba(255, 0, 0, 0.2);padding:.5em 1em;color: red;margin: .5em 0;";
+          listado.forEach( function(error){
+                divTemplate.innerHTML += `<p><span>${error}</span></p>`;
+          })
+
+          form.appendChild(divTemplate);
+    }
+}
 
 /* -------------------------------------------------------------------------- */
 /*                [5] FUNCION: Formulario completado con éxito                */
@@ -145,3 +182,26 @@ sin contar espacios al principio, en el medio o final, sumar el error:
 // 4 - finalmente pasados 4 segundos:
 //     se debe eliminar esa caja, habilitar el botón y limpiar el formulario
 
+function mostrarMensajeExito(listado) {
+
+    if (listado == 0) {
+        const divTemplate = document.createElement('div');
+        divTemplate.setAttribute("id", "exito");
+        divTemplate.style = "background:rgba(0, 255, 0, 0.2);padding:.5em 1em;color: red;margin: .5em 0;";
+        
+        divTemplate.innerHTML = `<p><span>¡Formulario completado con éxito!</span></p>`;
+
+        form.appendChild(divTemplate);
+
+        const boton = document.querySelector("button");
+        boton.setAttribute("disabled", "");
+
+        const cajaExito = document.querySelector("#exito");
+
+        setTimeout(() => {
+            boton.removeAttribute("disabled");
+            form.reset();
+            cajaExito.remove();
+        }, 4000);
+    }
+}
