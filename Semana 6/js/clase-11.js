@@ -131,7 +131,7 @@ boton.addEventListener("click", () => {
         .then((resultado => {
             console.log(resultado);
             renderizarElementos(resultado);
-            // la ruta es la correcta, por ello entra en el then con el resultado esperado
+            // la ruta es la correcta, por ello entró en el then con el resultado esperado
             // (el listado para iterar)
         }))
         .catch( (error) => {
@@ -202,7 +202,32 @@ function consultaAsincrona(ruta) {
 function renderizarElementos(listado) {
 
     // desarrollar la funcion 👇
+    console.log(listado);
+    const comentarios = document.querySelector(".comentarios");
+
+    //Renderizado con foreach 
+    comentarios.innerHTML = ""
+    listado.forEach(comentario => {
+        comentarios.innerHTML += `
+            <div class="comentario" data-id="${comentario.id}">
+                <h4>${comentario.email}</h4>
+                <p>${comentario.body}</p>
+            </div>
+        `
+    });
     
+   
+    /* Renderizando con el método map */
+    // comentarios.innerHTML = listado.map( comentario => {
+    //     return `
+    //         <div class="comentario" data-id="${comentario.id}">
+    //             <h4>${comentario.email}</h4>
+    //             <p>${comentario.body}</p>
+    //         </div>
+    //     `
+    // }).join("");
+    
+    // console.log(listado);
 }
 
 
